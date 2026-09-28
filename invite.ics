@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding Invitation//AR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mohamad-adib-tawil-razan-bataihi-20261218@example.com
+DTSTAMP:20260928T000000Z
+DTSTART;TZID=Asia/Baghdad:20261218T190000
+DTEND;TZID=Asia/Baghdad:20261218T230000
+SUMMARY:دعوة زفاف محمد أديب طويل و رزان بطايحي
+LOCATION:قاعة البحيرة للمناسبات — بغداد — شارع أبو نؤاس
+DESCRIPTION:يوم الجمعة، ١٨ كانون الأول ٢٠٢٦
+END:VEVENT
+END:VCALENDAR

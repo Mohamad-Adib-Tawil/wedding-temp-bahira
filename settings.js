@@ -1,0 +1,16 @@
+window.__INVITE__={config:{"groom":"محمد أديب طويل","groomLatin":"Mohamad Adib Tawil","bride":"رزان بطايحي","brideLatin":"Razan Bataihi","occasion":"wedding","date":"2026-12-18T19:00:00","dateText":"يوم الجمعة، ١٨ كانون الأول ٢٠٢٦","timeText":"الساعة السابعة مساءً","heroSub":"يتشرّفان بدعوتكم لمشاركتهما فرحة العمر","invitationText":"على ضفّةٍ يسكنها الضوء، وبقلوبٍ مفعمةٍ بالفرح، نتشرّف بدعوتكم لمشاركتنا أجمل لحظات حياتنا في حفل زفافنا. حضوركم شرفٌ لنا وبهجةٌ تكتمل بها فرحتنا.","verse":"وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً","groomParents":"نجل السيّد سالم عبد الكريم و السيّدة رفيف","brideParents":"كريمة السيّد حازم عبد الرحمن و السيّدة سُهى","venueName":"قاعة البحيرة للمناسبات","venueAddr":"بغداد — شارع أبو نؤاس","mapUrl":"https://www.google.com/maps/search/?api=1&query=Baghdad","program":[{"time":"٧:٠٠ مساءً","title":"استقبال الضيوف"},{"time":"٨:٠٠ مساءً","title":"دخول العروسين"},{"time":"٩:٠٠ مساءً","title":"العشاء"},{"time":"١٠:٣٠ مساءً","title":"السهرة والاحتفال"}],"notes":["يُرجى الحضور قبل الموعد بنصف ساعة","نتشرّف بحضوركم بأبهى حلّة","التصوير مسموح، شاركونا أجمل اللحظات","الدعوة تشمل حاملها والعائلة الكريمة"],"closingNote":"حضوركم يزيّن فرحتنا","hashtag":"#هلاهيل","contactLabel":"للاستفسار والتأكيد","contactName":"للتواصل","contactPhone":"+963992688759","whatsappUrl":"https://wa.me/+963992688759","musicVideoId":"boRd_GXsYWA","orderUrl":"https://wa.me/+963992688759","calendarTimezone":"Asia/Baghdad","images":{"painting":"assets/painting.webp"},"assets":{"entranceVideo":"assets/entrance.mp4","entrancePoster":"assets/entrance-poster.jpg","painting":"assets/painting.webp","shareImage":"assets/painting.webp","font":"assets/aldhabi.woff2"},"closingFamilies":"عائلة سالم عبد الكريم  &  عائلة حازم عبد الرحمن"}};
+window.WEDDING_SETTINGS=window.__INVITE__.config;
+(function(){
+  var c=window.WEDDING_SETTINGS;
+  var story={kicker:'حفل زفاف',primary:c.groom+' & '+c.bride,dateText:c.dateText};
+  window.__da3waStoryText={};
+  document.addEventListener('DOMContentLoaded',function(){
+    var storyConfig=window.__INVITE__.config;
+    var google=document.getElementById('googleCalendarLink');
+    if(google){var parts=storyConfig.date.split('T');var wall=new Date(parts[0]+'T'+parts[1]+':00Z');var start=parts[0].replace(/-/g,'')+'T'+parts[1].replace(/:/g,'')+'00';var endWall=new Date(wall.getTime()+4*3600000);var end=endWall.toISOString().slice(0,19).replace(/[-:]/g,'').replace('T','T');var p=new URLSearchParams({action:'TEMPLATE',text:'دعوة زفاف '+storyConfig.groom+' & '+storyConfig.bride,dates:start+'/'+end,ctz:storyConfig.calendarTimezone,location:storyConfig.venueName+' — '+storyConfig.venueAddr,details:storyConfig.dateText});google.href='https://calendar.google.com/calendar/render?'+p.toString();google.target='_blank';google.rel='noopener';}
+    document.title='دعوة زفاف '+storyConfig.groom+' & '+storyConfig.bride;
+    var ogTitle=document.querySelector('meta[property="og:title"]');if(ogTitle)ogTitle.content=document.title;
+    var ogDescription=document.querySelector('meta[property="og:description"]');if(ogDescription)ogDescription.content=storyConfig.dateText+' • '+storyConfig.venueName;
+    var order=document.querySelector('#wedding-order a');if(order)order.href=storyConfig.orderUrl;
+  });
+})();

@@ -1,0 +1,746 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#cce8fd">
+  <title>دعوة زفاف محمد أديب طويل &amp; رزان بطايحي</title>
+  <meta name="description" content="دعوة زفاف محمد أديب طويل ورزان بطايحي">
+  <meta property="og:title" content="دعوة زفاف محمد أديب طويل &amp; رزان بطايحي">
+  <meta property="og:description" content="دعوة زفاف محمد أديب طويل ورزان بطايحي">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <!-- نفس عائلات المنصّة لا غير (src/lib/content/fonts.ts): أميري للنصّ المرسوم،
+       رقعة عارف احتياطاً له، تجوّل للتسميات، وكورمورانت للأرقام اللاتينية وحدها
+       (كل أرقام الدعوة لاتينية — latinDigits في script.js) -->
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&amp;family=Amiri:ital,wght@0,400;0,700;1,400&amp;family=Tajawal:wght@300;400;500;700&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet">
+  <!-- أول ما يُرى هو إطار البوّابة الساكن، فهو وحده بالأولوية القصوى. ثم لوحة
+       القالب: هي الشاشة الثانية، وتُحمَّل بينما الضيفة تشاهد البوّابة تنفتح.
+       (رسمة الزبونة تصل من __INVITE__ بعد تحميل السكربت، وتهيئة رابطٍ لا نعرفه
+       وقت بناء الـHTML غير ممكنة أصلاً) -->
+  <link rel="preload" as="image" href="assets/entrance-poster.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/painting.webp">
+  <link rel="preload" as="font" type="font/woff2" href="assets/aldhabi.woff2" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:image" content="assets/painting.webp">
+  <meta property="og:url" content="https://mohamad-adib-tawil.github.io/wedding-temp-bahira/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/painting.webp">
+
+
+
+
+<style id="da3wa-preline">#invitationText,#verseText,#inviteLine,#heroInvite,#requestAr,#introText,#phraseCustom,#txtInvite{white-space:pre-line}</style>
+<link rel="preconnect" href="https://www.youtube.com"><link rel="preconnect" href="https://i.ytimg.com"><link rel="preload" as="script" href="https://www.youtube.com/iframe_api">
+<style>
+#wedding-order{position:fixed;bottom:0;left:0;right:0;z-index:80;display:flex;justify-content:center;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid #dce8eb;font-family:"Tajawal",system-ui,sans-serif}
+#wedding-order a{display:inline-block;background:#3f6d84;color:#fff;text-decoration:none;font-weight:800;font-size:.92rem;padding:10px 24px;border-radius:999px}
+</style>
+</head>
+<body class="locked">
+
+  <!-- ============ البوّابة: بوّابة بيضاء تنفتح على ممرّ اللوحة ============
+       مقطعٌ صامت (muted + playsinline شرطُ تشغيله داخل الصفحة على iOS)، وإطارُه
+       الساكن poster يُرى فوراً ويبقى وحده إن مُنع التشغيل أو طُلبت حركةٌ مخفّضة.
+       آخر لقطةٍ منه: البوّابة مفتوحة على الممرّ الحجري — وهو الممرّ نفسه الذي
+       يقف عليه العروسان باللوحة، فالعبور متّصل لا قطع. -->
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="افتتاح الدعوة">
+    <div class="gate-stage">
+      <!-- preload="auto": العنصر نفسه يسحب المقطع تدريجياً ويبدأ العرض بعد
+           أوّل جزءٍ مخزّن لا بعد آخر بايت — وهو شرط «يعمل مباشرة بعد اللمس».
+           (جُرّب جلبه بـfetch كاملاً ثمّ تسليمه blob: رقمُ التحميل يصير أدقّ،
+           لكنّ العرض التدريجي يسقط فلا تبدأ الدخوليّة إلا بعد اكتمال الملف.)
+           والملف بـ+faststart ورأسُه أوّلاً فيبدأ التخزين مفيداً من أوّله. -->
+      <video class="gate-video" id="gateVideo" muted="" playsinline="" webkit-playsinline="" preload="auto" disablepictureinpicture="" poster="assets/entrance-poster.jpg" aria-hidden="true">
+        <source src="assets/entrance.mp4" type="video/mp4">
+      </video>
+      <div class="gate-veil" aria-hidden="true"></div>
+    </div>
+
+    <!-- وهج الأفق يتمدّد عند اللمس فيصير جسر العبور للرئيسية -->
+    <div class="gate-bloom" id="gateBloom" aria-hidden="true"></div>
+
+    <!-- الشاشة كلّها مساحة لمس، والزرّ المرئي أسفلها يدلّ عليها. وهو يعمل من
+         أوّل لحظة: إن لُمس قبل أن يكتمل المقطع دخلنا الدعوة رأساً بالبياض بدل
+         أن تقف الضيفة أمام بابٍ لا يستجيب. -->
+    <button class="gate-tap" id="gateBtn" type="button">
+      <span class="gate-pill">
+        <span class="hint-ring" aria-hidden="true"></span>
+        <span class="gate-pill-text" id="gatePillText">المسي الباب</span>
+      </span>
+      <!-- شريط التحميل: عرضه نسبةُ ما وصل من بايتات المقطع واللوحة فعلاً -->
+      <span class="gate-bar" aria-hidden="true"><i id="gateBarFill"></i></span>
+    </button>
+  </div>
+
+  <!-- ============ الدعوة ============ -->
+  <main class="invite" id="invite" aria-hidden="true">
+
+    <!-- خلفية ثابتة: ورد الزبونة الأبيض خلف كل المحتوى -->
+    <div class="scene" aria-hidden="true">
+      <div class="scene-photo"></div>
+      <div class="scene-veil"></div>
+    </div>
+
+    <!-- ===== الواجهة: اللوحة كاملةً، وسماؤها للأسماء =====
+         خارج .page عمداً: اللوحة تملأ عرض الشاشة، وبها تصير طبقة البتلات (تحتها
+         بالشجرة) قادرةً على النزول فوق سماء الغلاف أيضاً لا بعده فقط. -->
+    <header class="hero reveal" id="hero">
+      <!-- الإطار يأخذ نسبة اللوحة نفسها، واللوحة تملؤه بـcontain: لا قصّ أبداً
+           مهما اختلف مقاس رسمة الزبونة. ما حول الإطار سماءُ اللوحة نفسها
+           ممدودةً، لا بندٌ بلونٍ آخر. -->
+      <!-- جناحا المشهد: على الشاشة العريضة يمتدّ شريطُ حافّة اللوحة نفسِه يميناً
+           ويساراً (مشدوداً أفقياً ومطموساً قليلاً)، فتكمل الحديقة خارج الإطار
+           بلونها على كل ارتفاع بدل هالةٍ شاحبة تجعل اللوحة تبدو ناقصة.
+           مطفآن على الهاتف: اللوحة تملأ العرض فلا فراغ جانبيّ أصلاً. -->
+      <span class="hero-wings" aria-hidden="true"></span>
+
+      <div class="hero-frame">
+        <!-- اللوحة: من c.images.painting إن وُجدت، وإلا لوحة القالب -->
+        <img class="hero-art" id="heroArt" src="assets/painting.webp" alt="" aria-hidden="true">
+      </div>
+      <div class="hero-inner">
+
+        <!-- غصنا زيتونٍ من قنطرة اللوحة، ووردتها بينهما -->
+        <div class="sprig" aria-hidden="true">
+          <svg viewBox="0 0 124 18">
+            <g stroke="currentColor" stroke-width="1" stroke-linecap="round" fill="none" opacity=".55">
+              <path d="M4 9h44"></path><path d="M76 9h44"></path>
+            </g>
+            <g fill="currentColor" opacity=".82">
+              <path d="M16 9c0-2.7 2.3-4.8 5.3-4.8 0 2.7-2.3 4.8-5.3 4.8Z"></path>
+              <path d="M26 9c0 2.7 2.3 4.8 5.3 4.8 0-2.7-2.3-4.8-5.3-4.8Z"></path>
+              <path d="M36 9c0-2.7 2.3-4.8 5.3-4.8 0 2.7-2.3 4.8-5.3 4.8Z"></path>
+              <path d="M108 9c0 2.7-2.3 4.8-5.3 4.8 0-2.7 2.3-4.8 5.3-4.8Z"></path>
+              <path d="M98 9c0-2.7-2.3-4.8-5.3-4.8 0 2.7 2.3 4.8 5.3 4.8Z"></path>
+              <path d="M88 9c0 2.7-2.3 4.8-5.3 4.8 0-2.7 2.3-4.8 5.3-4.8Z"></path>
+            </g>
+            <g transform="translate(62 9) scale(.64) translate(-12 -12)">
+              <g fill="currentColor" opacity=".92">
+                <circle cx="12" cy="6.2" r="4"></circle><circle cx="17" cy="9.1" r="4"></circle><circle cx="17" cy="14.9" r="4"></circle>
+                <circle cx="12" cy="17.8" r="4"></circle><circle cx="7" cy="14.9" r="4"></circle><circle cx="7" cy="9.1" r="4"></circle>
+              </g>
+              <circle cx="12" cy="12" r="3.1" fill="#cce8fd"></circle>
+              <circle cx="12" cy="12" r="1.25" fill="currentColor" opacity=".85"></circle>
+            </g>
+          </svg>
+        </div>
+
+        <p class="hero-kicker">دعوة زفاف</p>
+
+        <h1 class="couple">
+          <span class="couple-name" id="groomName">اسم العريس</span>
+          <span class="couple-sep" aria-hidden="true">&amp;</span>
+          <span class="couple-name" id="brideName">اسم العروس</span>
+        </h1>
+
+        <!-- لا تاريخ بالواجهة (طلب كرار): سطرٌ زائد يزحم السماء ويدفع النصّ
+             إلى وجهَي العروسين. وهو مكتوبٌ كاملاً في لوح «الموقع» أسفل. -->
+        <p class="hero-sub" id="heroSub">—</p>
+      </div>
+
+      <!-- خارج .hero-inner عمداً: يرسو بأسفل الغلاف لا بذيل بند السماء -->
+      <span class="scroll-cue" aria-hidden="true">
+        <span class="scroll-cue-label">مرّري للأسفل</span>
+        <span class="scroll-cue-arrow">▾</span>
+      </span>
+    </header>
+
+    <!-- بتلات الورد الأبيض تنزل على الدعوة كلّها، بعمقين: طبقةٌ خلف الألواح
+         (بتلات أكبر وأبطأ) وطبقةٌ أمامها (أصغر وأرقّ)، فالنزول يُقرأ مشهداً
+         له مسافة لا ستارةً واحدة. بلا id عمداً: قاعدة الأقسام المحقونة أسفل
+         الملف تحصر كل `.invite > div[id]` بعرض العمود، وهاتان طبقتان
+         ثابتتان بملء الشاشة. يملؤهما script.js، وتبقيان فارغتين مع الحركة
+         المخفّضة. -->
+    <div class="petals petals-back" aria-hidden="true"></div>
+    <div class="petals petals-front" aria-hidden="true"></div>
+
+    <div class="page">
+
+      <!-- ===== الآية / الدعاء — أوّل ما بعد اللوحة: لوحٌ مقنطر كأنك عبرت القنطرة ===== -->
+      <section class="card verse-card reveal">
+        <span class="card-leaf" aria-hidden="true">
+          <!-- وردة القنطرة البيضاء: ستّ بتلات وقلبٌ فاتح — مملوءةٌ لا محدَّدة بخط
+               كي تبقى وردةً حين تُصغَّر إلى ١٥ بكسل في الملاحظات والبرنامج -->
+          <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+            <g fill="currentColor" opacity=".92">
+              <circle cx="12" cy="6.2" r="4"></circle><circle cx="17" cy="9.1" r="4"></circle><circle cx="17" cy="14.9" r="4"></circle>
+              <circle cx="12" cy="17.8" r="4"></circle><circle cx="7" cy="14.9" r="4"></circle><circle cx="7" cy="9.1" r="4"></circle>
+            </g>
+            <circle cx="12" cy="12" r="3.1" fill="#f6f4ed"></circle>
+            <circle cx="12" cy="12" r="1.25" fill="currentColor" opacity=".85"></circle>
+          </svg>
+        </span>
+        <p class="verse" id="verseText">—</p>
+      </section>
+
+      <!-- ===== نص الدعوة والعائلتان ===== -->
+      <section class="card invite-card reveal">
+        <h2 class="sec-title"><span>بطاقة دعوة</span></h2>
+        <p class="invitation-text" id="invitationText">—</p>
+        <div class="families" id="families">
+          <div class="family" id="familyGroom">
+            <span class="family-label">أهل العريس</span>
+            <p class="family-names" id="groomParents">—</p>
+          </div>
+          <span class="families-leaf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <g fill="currentColor" opacity=".92">
+              <circle cx="12" cy="6.2" r="4"></circle><circle cx="17" cy="9.1" r="4"></circle><circle cx="17" cy="14.9" r="4"></circle>
+              <circle cx="12" cy="17.8" r="4"></circle><circle cx="7" cy="14.9" r="4"></circle><circle cx="7" cy="9.1" r="4"></circle>
+            </g>
+            <circle cx="12" cy="12" r="3.1" fill="#f6f4ed"></circle>
+            <circle cx="12" cy="12" r="1.25" fill="currentColor" opacity=".85"></circle>
+          </svg>
+          </span>
+          <div class="family" id="familyBride">
+            <span class="family-label">أهل العروس</span>
+            <p class="family-names" id="brideParents">—</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== كشف الموعد: ثلاث بلاطات تُحَكّ بالإصبع =====
+           غشاءٌ أزرق بلون بحيرة اللوحة يُمحى بالتمرير فيظهر تحته اليوم والشهر
+           والسنة. يُرسم الغشاء على <canvas> ويُمحى بـdestination-out: لا صورة
+           تُجلب ولا مكتبة. والقيم مكتوبةٌ بالـDOM تحته أصلاً، فمن لا يقدر على
+           التمرير (قارئ شاشة، حركة مخفّضة، متصفّح بلا canvas) يراها كاملةً. -->
+      <section class="card scratch-card reveal" id="scratchCard">
+        <h2 class="sec-title"><span>اكشفوا الموعد</span></h2>
+        <p class="scratch-hint" id="scratchHint">مرّري إصبعكِ على المربّعات</p>
+        <div class="scratch-row" id="scratchRow">
+          <div class="scratch-tile" data-k="day">
+            <span class="scratch-val" id="scDay">—</span>
+            <span class="scratch-lbl">اليوم</span>
+          </div>
+          <div class="scratch-tile" data-k="month">
+            <span class="scratch-val" id="scMonth">—</span>
+            <span class="scratch-lbl">الشهر</span>
+          </div>
+          <div class="scratch-tile" data-k="year">
+            <span class="scratch-val" id="scYear">—</span>
+            <span class="scratch-lbl">السنة</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== العدّ التنازلي ===== -->
+      <section class="card count-card reveal">
+        <h2 class="sec-title"><span>بقي على الفرحة</span></h2>
+        <div class="countdown" id="countdown" role="timer" aria-label="الوقت المتبقّي">
+          <div class="cd-unit"><span class="cd-num" id="cdDays">00</span><span class="cd-lbl">يوم</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cdHours">00</span><span class="cd-lbl">ساعة</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cdMins">00</span><span class="cd-lbl">دقيقة</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cdSecs">00</span><span class="cd-lbl">ثانية</span></div>
+        </div>
+        <p class="cd-arrived" id="cdArrived" hidden="">اليوم يوم الفرح 🤍</p>
+      </section>
+
+      <!-- ===== البرنامج ===== -->
+      <section class="card timeline-card reveal" id="programCard">
+        <h2 class="sec-title"><span>برنامج الحفل</span></h2>
+        <ul class="timeline" id="timeline"></ul>
+      </section>
+
+      <!-- ===== القاعة ===== -->
+      <section class="card venue-card reveal">
+        <h2 class="sec-title"><span>الموقع</span></h2>
+        <p class="venue-date" id="weddingDate">—</p>
+        <p class="venue-time" id="weddingTime">—</p>
+        <div class="venue-photo" id="venuePhoto" hidden=""><img id="venuePhotoImg" alt=""></div>
+        <p class="venue-name" id="venueName">—</p>
+        <p class="venue-addr" id="venueAddr">—</p>
+        <!-- وجهُ خريطةٍ مرسومٌ بمفردات اللوحة نفسها: ماءُ البحيرة وطرقُ الحجر
+             وخضرةُ الحديقة ودبّوسٌ نحاسيّ ينبض في موضع القاعة. مرسومٌ لا
+             مجلوب: لا طلبَ شبكةٍ ولا مفتاحَ خدمةٍ ولا تتبّعَ ضيفٍ بفتح الدعوة.
+             واللوح كلّه رابط: اللمسة في أي موضعٍ منه تفتح الخريطة الحقيقية. -->
+        <a class="map-face" id="mapCard" href="#" target="_blank" rel="noopener" aria-label="افتح الموقع على الخريطة">
+          <svg class="map-art" viewBox="0 0 320 176" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+            <rect width="320" height="176" fill="#edf2e8"></rect>
+            <!-- ماءُ البحيرة يعبر الزاوية -->
+            <path d="M320 0v44c-46 10-78 34-96 66-16 28-42 50-78 66H320v0H320V0Z" fill="#94b9d0" opacity=".82"></path>
+            <path d="M320 44c-46 10-78 34-96 66-16 28-42 50-78 66" fill="none" stroke="#dfeef9" stroke-width="5" opacity=".7"></path>
+            <!-- حدائق -->
+            <rect x="18" y="20" width="76" height="46" rx="9" fill="#7e8568" opacity=".34"></rect>
+            <rect x="28" y="116" width="58" height="42" rx="9" fill="#737548" opacity=".28"></rect>
+            <!-- بلوكات الحجر -->
+            <g fill="#89866a" opacity=".2">
+              <rect x="112" y="18" width="52" height="34" rx="6"></rect>
+              <rect x="112" y="118" width="46" height="40" rx="6"></rect>
+              <rect x="196" y="16" width="40" height="26" rx="6"></rect>
+              <rect x="18" y="76" width="40" height="28" rx="6"></rect>
+            </g>
+            <!-- طرق: شرائط حجرٍ فاتح بحدٍّ رفيع -->
+            <g stroke="#f7f2e9" stroke-linecap="round" fill="none">
+              <path d="M0 70h320" stroke-width="13"></path>
+              <path d="M104 0v176" stroke-width="11"></path>
+              <path d="M0 110h190" stroke-width="7"></path>
+              <path d="M176 0v90" stroke-width="7"></path>
+            </g>
+            <g stroke="#89866a" stroke-linecap="round" fill="none" opacity=".2">
+              <path d="M0 70h320" stroke-width="14"></path>
+              <path d="M104 0v176" stroke-width="12"></path>
+            </g>
+            <g stroke="#9d8d62" stroke-linecap="round" stroke-dasharray="7 9" fill="none" opacity=".45">
+              <path d="M0 70h320" stroke-width="1.2"></path>
+            </g>
+          </svg>
+          <span class="map-pin" aria-hidden="true">
+            <span class="map-pin-wave"></span>
+            <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+              <path d="M12 22.5s7.4-6.6 7.4-11.6a7.4 7.4 0 1 0-14.8 0C4.6 15.9 12 22.5 12 22.5Z" fill="#38607a" stroke="#fdfaf4" stroke-width="1.5"></path>
+              <circle cx="12" cy="10.6" r="2.7" fill="#f2e2cc"></circle>
+            </svg>
+          </span>
+          <span class="map-hint" id="mapCardHint">اضغطي لفتح الموقع</span>
+        </a>
+
+        <a class="btn btn-map" id="mapBtn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21 s7-6.2 7-11 a7 7 0 1 0 -14 0 c0 4.8 7 11 7 11 Z" fill="none" stroke="currentColor" stroke-width="1.7"></path><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"></circle></svg>
+          الموقع على الخريطة
+        </a>
+      </section>
+
+      <!-- ===== ملاحظات ===== -->
+      <section class="card notes-card reveal" id="notesCard">
+        <h2 class="sec-title"><span>ملاحظات</span></h2>
+        <ul class="notes" id="notesList"></ul>
+      </section>
+
+      <!-- ===== الختام ===== -->
+      <section class="closing reveal">
+        <!-- درابزين الشرفة الحجري، ووردةٌ في وسطه -->
+        <div class="closing-divider" aria-hidden="true">
+          <span></span>
+          <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+            <g fill="currentColor" opacity=".92">
+              <circle cx="12" cy="6.2" r="4"></circle><circle cx="17" cy="9.1" r="4"></circle><circle cx="17" cy="14.9" r="4"></circle>
+              <circle cx="12" cy="17.8" r="4"></circle><circle cx="7" cy="14.9" r="4"></circle><circle cx="7" cy="9.1" r="4"></circle>
+            </g>
+            <circle cx="12" cy="12" r="3.1" fill="#f6f4ed"></circle>
+            <circle cx="12" cy="12" r="1.25" fill="currentColor" opacity=".85"></circle>
+          </svg>
+          <span></span>
+        </div>
+        <p class="closing-note" id="closingNote">—</p>
+        <p class="closing-hashtag" id="closingHashtag">—</p>
+        <p class="closing-families" id="closingFamilies">—</p>
+      </section>
+
+      <!-- ===== للتواصل ===== -->
+      <section class="card contact-card reveal" id="contactBox">
+        <h2 class="sec-title"><span id="contactLabel">للاستفسار والتأكيد</span></h2>
+        <p class="contact-name" id="contactName">—</p>
+        <a class="btn btn-tel" id="contactLink" href="#">
+          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M5 4 h4 l1.6 4.2 -2.4 1.8 a12 12 0 0 0 5.8 5.8 l1.8 -2.4 L20 15 v4 a2 2 0 0 1 -2 2 A15 15 0 0 1 3 6 a2 2 0 0 1 2 -2 Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path></svg>
+          <span id="contactPhoneText">اتصال</span>
+        </a>
+      </section>
+
+    </div>
+  
+
+<section id="da3wa-cal" dir="rtl">
+  <style>
+    #da3wa-cal{position:relative;z-index:5;padding:6px 18px 44px;font-family:"Tajawal",system-ui,sans-serif}
+    #da3wa-cal .cal-title{text-align:center;font-family:"Aref Ruqaa",serif;font-size:23px;color:#3f6d84;margin:0 0 16px;letter-spacing:normal;font-weight:700;text-shadow:0 1px 10px rgba(255,255,255,.5)}
+    #da3wa-cal .cal{max-width:258px;margin:0 auto;background:#fbfdfe;border:1px solid rgba(138,167,174,.34);border-radius:20px;overflow:hidden;box-shadow:0 20px 46px rgba(120,90,70,.16);}
+    #da3wa-cal .cal-top{background:linear-gradient(135deg, #3f6d84, #5b8ba1);color:#fbfdfe;text-align:center;padding:13px 10px 11px;font-weight:800;font-size:16px;position:relative}
+    #da3wa-cal .cal-top::before,#da3wa-cal .cal-top::after{content:"";position:absolute;top:-6px;width:8px;height:15px;border-radius:4px;background:#d7ccdf;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+    #da3wa-cal .cal-top::before{right:33%}
+    #da3wa-cal .cal-top::after{left:33%}
+    #da3wa-cal .cal-body{padding:14px 10px 18px;text-align:center}
+    #da3wa-cal .cal-wd{color:#6e828c;font-weight:700;font-size:15px;margin-bottom:2px}
+    #da3wa-cal .cal-day{font-family:"Aref Ruqaa",serif;font-size:62px;line-height:1.15;color:#3f6d84;letter-spacing:normal;font-weight:700}
+    #da3wa-cal .cal-time{color:#2f3f47;font-weight:700;font-size:14px;margin-top:8px}
+    #da3wa-cal .cal-foot{border-top:1px dashed rgba(138,167,174,.34);padding:12px 12px 15px;text-align:center}
+    #da3wa-cal .cal-cap{color:#6e828c;font-size:12px;font-weight:700;margin:0 0 9px}
+    #da3wa-cal .cal-btns{display:flex;gap:7px;justify-content:center;flex-wrap:wrap}
+    #da3wa-cal .cal-btns a{display:inline-flex;align-items:center;border:1.5px solid #3f6d84;color:#3f6d84;background:transparent;text-decoration:none;font-weight:700;font-size:12.5px;border-radius:999px;padding:7px 13px;transition:.15s}
+    #da3wa-cal .cal-btns a:active{transform:scale(.97)}
+  </style>
+  <p class="cal-title">احفظ الموعد ❀</p>
+  <div class="cal">
+    <div class="cal-top">كانون الأول 2026</div>
+    <div class="cal-body">
+      <div class="cal-wd">الجمعة</div>
+      <div class="cal-day">18</div>
+      <div class="cal-time">الساعة السابعة مساءً</div>
+    </div>
+      <div class="cal-foot">
+        <p class="cal-cap">📲 أضِف الموعد إلى تقويم هاتفك بضغطة</p>
+        <div class="cal-btns">
+          <a href="#" id="googleCalendarLink" target="_blank" rel="noopener">تقويم جوجل</a>
+          <a href="invite.ics">تقويم آيفون</a>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section id="da3wa-rsvp" data-inv="bce401dd-1a5d-41e5-b32b-7201222e6fc5" data-cap="" dir="rtl">
+  <style>
+    #da3wa-rsvp{position:relative;z-index:5;padding:48px 18px 64px;font-family:"Tajawal",system-ui,sans-serif}
+    #da3wa-rsvp .rsvp-card{max-width:440px;margin:0 auto;background:#fbfdfe;border:1px solid rgba(138,167,174,.34);border-radius:20px;padding:26px 22px;box-shadow:0 24px 60px rgba(120,90,70,.18);text-align:center}
+    #da3wa-rsvp h3{font-family:"Aref Ruqaa",serif;font-size:26px;color:#2f3f47;margin:0 0 4px;letter-spacing:normal;font-weight:700}
+    #da3wa-rsvp .orn-line{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 6px}
+    #da3wa-rsvp .orn-line i{flex:0 1 54px;height:1.5px;background:linear-gradient(90deg,transparent,#3f6d84);border:none}
+    #da3wa-rsvp .orn-line i:last-child{transform:scaleX(-1)}
+    #da3wa-rsvp .orn-line b{font-size:17px;line-height:1;font-weight:400}
+    #da3wa-rsvp p.sub{color:#6e828c;font-size:14px;margin:0 0 18px}
+    /* شارة الحد الأقصى للحضور */
+    #da3wa-rsvp .cap-note{display:inline-flex;align-items:center;gap:7px;background:#3f6d8414;border:1px dashed #3f6d84;color:#3f6d84;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:700;margin:0 0 16px;line-height:1.7}
+    /* تنبيه خاص بدعوة Bassam & Neyra — أسفل حد الحضور مباشرةً */
+    #da3wa-rsvp .names-notice{display:block;margin:-4px 0 12px;padding:8px 11px;border-radius:7px;background:#dc1745;color:#fff;font-size:13px;font-weight:800;line-height:1.35;text-align:center;box-shadow:0 7px 16px rgba(220,23,69,.22)}
+    /* تنبيه بلوغ الحد — يظهر بنبضة لطيفة ويختفي */
+    #da3wa-rsvp .cap-max{display:block;color:#3f6d84;font-size:13px;font-weight:800;margin-top:8px;opacity:0;transform:translateY(-4px);transition:opacity .3s ease,transform .3s ease}
+    #da3wa-rsvp .cap-max.on{opacity:1;transform:none;animation:dwPop .45s ease}
+    #da3wa-rsvp .step.at-cap #da3wa-plus{opacity:.4;cursor:not-allowed}
+    #da3wa-rsvp .step.shake{animation:dwShake .4s ease}
+    @keyframes dwPop{0%{transform:scale(.85)}55%{transform:scale(1.06)}100%{transform:scale(1)}}
+    @keyframes dwShake{0%,100%{transform:translateX(0)}25%{transform:translateX(4px)}50%{transform:translateX(-4px)}75%{transform:translateX(3px)}}
+    /* start لا right: القسم يحمل dir حسب اللغة، فالإنكليزية كانت تصفّ التسميات يميناً */
+    #da3wa-rsvp label{display:block;text-align:start;font-weight:700;font-size:13px;color:#2f3f47;margin:12px 0 5px}
+    #da3wa-rsvp input,#da3wa-rsvp textarea{width:100%;padding:11px 14px;border:1.5px solid rgba(138,167,174,.34);border-radius:12px;font-family:inherit;font-size:15px;background:#ffffff;color:#2f3f47;box-sizing:border-box}
+    #da3wa-rsvp input::placeholder,#da3wa-rsvp textarea::placeholder{color:#6e828c;opacity:.85}
+    #da3wa-rsvp .pills{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+    /* font-family:inherit — بلا هذا يرث الزر خط المتصفح (Arial) فتشذّ نعم/لا/ربما عن خط الدعوة */
+    #da3wa-rsvp .pill{padding:11px;border:1.5px solid rgba(138,167,174,.34);border-radius:12px;background:#ffffff;font-family:inherit;font-weight:700;cursor:pointer;font-size:15px;color:#2f3f47;transition:.15s}
+    #da3wa-rsvp .pill[aria-pressed="true"]{background:#3f6d84;color:#fbfdfe;border-color:#3f6d84}
+    #da3wa-rsvp .step{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:6px}
+    #da3wa-rsvp .step button{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(138,167,174,.34);background:#ffffff;font-size:20px;cursor:pointer;color:#2f3f47}
+    #da3wa-rsvp .step span{font-size:20px;font-weight:800;min-width:28px;color:#2f3f47;text-align:center}
+    #da3wa-rsvp .send{width:100%;margin-top:20px;padding:13px;border:none;border-radius:999px;background:#3f6d84;color:#fbfdfe;font-weight:700;font-size:16px;font-family:inherit;cursor:pointer;box-shadow:0 12px 26px -12px #3f6d84e6}
+    #da3wa-rsvp .send:disabled{opacity:.6}
+    #da3wa-rsvp .ok{padding:18px}
+    #da3wa-rsvp .ok .emoji{font-size:46px}
+    #da3wa-rsvp .ok h3{margin-top:8px}
+    /* قمع الضيوف — بارز لكنه لا يزاحم تأكيد الحضور نفسه */
+    #da3wa-rsvp .gcta{margin:18px auto 2px;max-width:340px;padding:14px 16px;border-radius:16px;
+      background:rgba(255,255,255,.92);border:1px solid rgba(20,14,30,.10);box-shadow:0 10px 26px -16px rgba(20,14,30,.45)}
+    #da3wa-rsvp .gcta-t{margin:0;font-weight:800;font-size:15px;color:#2a2140;letter-spacing:normal}
+    #da3wa-rsvp .gcta-s{margin:5px 0 11px;font-size:12.5px;line-height:1.7;color:#6e6780;letter-spacing:normal}
+    #da3wa-rsvp .gcta-b{display:inline-block;background:#ff4d7d;color:#fff;text-decoration:none;font-weight:800;
+      font-size:13.5px;padding:9px 22px;border-radius:999px;letter-spacing:normal;
+      box-shadow:0 8px 18px -8px rgba(255,77,125,.9);transition:opacity .16s,transform .16s}
+    #da3wa-rsvp .gcta-b:active{opacity:.75;transform:scale(.97)}
+    /* بطاقة الدخول (QR) — تظهر كاملة على شاشة النجاح للـVIP */
+    #da3wa-rsvp .ticket{margin-top:16px;padding:16px;border-radius:20px;border:1px solid rgba(138,167,174,.34);background:#fff;}
+    #da3wa-rsvp .ticket-title{font-family:"Aref Ruqaa",serif;font-size:15px;letter-spacing:.04em;color:#6e828c;margin:0 0 10px}
+    #da3wa-rsvp .ticket-qr{width:min(72vw,250px);height:auto;display:block;margin:0 auto;border-radius:12px;background:#fff;padding:10px;box-shadow:0 8px 24px rgba(120,90,70,.08)}
+    #da3wa-rsvp .ticket-hint{font-size:.8rem;opacity:.8;margin:10px auto 0;max-width:280px;line-height:1.7}
+    #da3wa-rsvp .ticket-save{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:.72rem 1.6rem;border:none;border-radius:999px;background:#3f6d84;color:#fbfdfe;font-family:inherit;font-weight:800;font-size:14.5px;cursor:pointer;box-shadow:0 12px 26px -12px #3f6d84e6}
+    #da3wa-rsvp .ticket-save:disabled{opacity:.7;cursor:default}
+    #da3wa-rsvp .ticket-open{display:block;margin-top:10px;font-size:.82rem;color:#3f6d84;text-decoration:underline}
+    #da3wa-rsvp .err{color:#e83e6c;font-size:13px;margin-top:8px;min-height:18px}
+    /* حالة «مؤكَّد» للرابط الشخصي — يفتحها الضيف العائد بدل استمارة فارغة */
+    #da3wa-rsvp .done-mark{font-size:40px;line-height:1}
+    #da3wa-rsvp .done-t{margin:6px 0 2px;font-family:"Aref Ruqaa",serif;font-size:22px;color:#2f3f47;letter-spacing:normal}
+    #da3wa-rsvp .done-n{margin:0;font-size:15px;font-weight:800;color:#3f6d84}
+    #da3wa-rsvp .done-c{margin:8px 0 0;font-size:14px;color:#6e828c}
+    #da3wa-rsvp .done-hint{margin:12px auto 0;max-width:300px;font-size:12.5px;line-height:1.75;color:#6e828c;opacity:.9}
+    #da3wa-rsvp .done-edit{margin-top:16px;padding:11px 26px;border:1.5px solid rgba(138,167,174,.34);border-radius:999px;background:#ffffff;color:#2f3f47;font-family:inherit;font-weight:700;font-size:14.5px;cursor:pointer}
+    #da3wa-rsvp .done-lock{margin:14px auto 0;max-width:300px;padding:9px 12px;border-radius:10px;background:#3f6d8412;border:1px dashed #3f6d84;color:#3f6d84;font-size:12.5px;font-weight:700;line-height:1.6}
+    /* الاسم المثبّت من الرابط: يُعرض ولا يُكتب */
+    #da3wa-rsvp input[readonly]{opacity:.85;cursor:default}
+    /* جدار التهاني */
+    #da3wa-rsvp .wishes{max-width:460px;margin:30px auto 0}
+    #da3wa-rsvp .wishes-h{text-align:center;margin-bottom:16px}
+    #da3wa-rsvp .wishes-h h3{font-size:21px;display:inline-block;background:#fbfdfe;color:#2f3f47;border:1px solid rgba(138,167,174,.34);border-radius:999px;padding:7px 22px;box-shadow:0 10px 26px rgba(120,90,70,.14);letter-spacing:normal}
+    #da3wa-rsvp .wish-list{display:grid;gap:10px}
+    #da3wa-rsvp .wish{display:flex;gap:11px;align-items:flex-start;background:#fbfdfe;border:1px solid rgba(138,167,174,.34);border-radius:16px;padding:13px 15px;box-shadow:0 8px 24px rgba(120,90,70,.08);animation:dwIn .5s ease both}
+    #da3wa-rsvp .wish-av{flex-shrink:0;width:40px;height:40px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Aref Ruqaa",serif;font-size:19px}
+    #da3wa-rsvp .wish-body{text-align:start;flex:1;min-width:0}
+    #da3wa-rsvp .wish-name{font-weight:700;color:#2f3f47;font-size:14px}
+    #da3wa-rsvp .wish-msg{color:#6e828c;font-size:14px;line-height:1.7;word-wrap:break-word}
+    #da3wa-rsvp .wishes-empty{text-align:center;color:#6e828c;font-size:14px;padding:16px;background:#fbfdfe;border:1px solid rgba(138,167,174,.34);border-radius:16px;}
+    #da3wa-rsvp .wish.wish-hid{display:none}
+    #da3wa-rsvp .wishes-more{display:block;margin:16px auto 0;padding:10px 26px;border:1px solid rgba(138,167,174,.34);border-radius:999px;background:#fbfdfe;color:#2f3f47;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 10px 26px rgba(120,90,70,.14);}
+    @keyframes dwIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    /* ستوري الحضور — عرض البطاقة بعد التأكيد */
+    #da3wa-rsvp .story-offer{margin-top:20px;padding-top:18px;border-top:1px dashed rgba(138,167,174,.34);text-align:center}
+    #da3wa-rsvp .so-t{margin:0;font-family:"Aref Ruqaa",serif;font-size:20px;color:#2f3f47;letter-spacing:normal}
+    #da3wa-rsvp .so-s{margin:4px 0 0;color:#6e828c;font-size:13.5px}
+    #da3wa-rsvp .so-img{width:172px;border-radius:14px;border:1px solid rgba(138,167,174,.34);box-shadow:0 14px 30px rgba(0,0,0,.18);margin:14px auto 12px;display:block;min-height:120px;background:#ffffff}
+    #da3wa-rsvp .so-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:320px;margin:0 auto}
+    #da3wa-rsvp .so-btn{padding:11px;border:none;border-radius:999px;font-weight:700;font-size:14.5px;font-family:inherit;cursor:pointer}
+    #da3wa-rsvp .so-dl{background:#3f6d84;color:#fbfdfe}
+    #da3wa-rsvp .so-sh{background:#ffffff;color:#2f3f47;border:1.5px solid rgba(138,167,174,.34)}
+    /* زر فتح الستوري — حين الباركود مفعّل يتصدّر هو والستوري خلف هذا الزر */
+    #da3wa-rsvp .so-open{margin-top:18px;padding:11px 24px;border:1.5px solid rgba(138,167,174,.34);border-radius:999px;background:#ffffff;color:#2f3f47;font-weight:700;font-size:14px;font-family:inherit;cursor:pointer}
+    /* قلوب تطفو من جانبي الشاشة */
+    #da3wa-rsvp .heart{position:fixed;bottom:-24px;font-size:24px;color:#3f6d84;pointer-events:none;z-index:55;opacity:0;will-change:transform,opacity;animation:dwHeart ease-in forwards;filter:drop-shadow(0 4px 6px #3f6d844d)}
+    @keyframes dwHeart{0%{opacity:0;transform:translateY(0) scale(.5) rotate(0)}12%{opacity:.95}100%{opacity:0;transform:translateY(-108vh) scale(1.15) rotate(var(--rot,8deg))}}
+  </style>
+  <div class="rsvp-card" id="da3wa-rsvp-card">
+    <div class="orn-line" aria-hidden="true"><i></i><b>❀</b><i></i></div>
+    
+    <div id="da3wa-form-wrap">
+    <h3>تأكيد الحضور</h3>
+    <p class="sub">يسعدنا تأكيد حضوركم</p>
+    
+    
+    <form id="da3wa-rsvp-form">
+      <label>الاسم الكريم</label>
+      <input name="guest_name" required="" maxlength="80" placeholder="اسمك">
+      <label>هل ستحضر؟</label>
+      <div class="pills" id="da3wa-att">
+        <button type="button" class="pill" data-v="yes" aria-pressed="true">نعم</button>
+        <button type="button" class="pill" data-v="no">لا</button>
+        <button type="button" class="pill" data-v="maybe">ربما</button>
+      </div>
+      <label>عدد المرافقين (عدا حضورك — ٠ إن كنت وحدك)</label>
+      <div class="step" id="da3wa-step"><button type="button" id="da3wa-minus">−</button><span id="da3wa-guests">0</span><button type="button" id="da3wa-plus">+</button></div>
+      
+      <label>كلمة للعروسين 💌</label><textarea name="message" rows="2" maxlength="300" placeholder="اكتب تهنئتك للعروسين..."></textarea>
+      <button class="send" type="submit">إرسال التأكيد</button>
+      <div class="err" id="da3wa-err"></div>
+    </form>
+    </div>
+  </div>
+
+  <div class="wishes" id="da3wa-wishes">
+    <div class="wishes-h"><h3>كلمات المهنّئين ❀</h3></div>
+    <div class="wish-list" id="da3wa-wish-list"><div class="wish"><div class="wish-av" style="background:#3f6d84">أ</div><div class="wish-body"><div class="wish-name">أم محمد</div><div class="wish-msg">ألف مبروك 🤍 بالرفاه والبنين إن شاء الله، فرحتكم فرحتنا</div></div></div><div class="wish"><div class="wish-av" style="background:#5b8ba1">س</div><div class="wish-body"><div class="wish-name">سارة</div><div class="wish-msg">عقبال ما نفرح بيكم بأحلى المناسبات، دعوة بغاية الذوق 😍</div></div></div><div class="wish"><div class="wish-av" style="background:#8aa7ae">ح</div><div class="wish-body"><div class="wish-name">حيدر</div><div class="wish-msg">مبارك الزواج، الله يجعل أيامكم كلها أفراح</div></div></div><div class="wish"><div class="wish-av" style="background:#c9a25e">ن</div><div class="wish-body"><div class="wish-name">نور الهدى</div><div class="wish-msg">بيت جديد عامر بالمحبة إن شاء الله، ألف مبروك</div></div></div><div class="wish"><div class="wish-av" style="background:#cfe0e8">أ</div><div class="wish-body"><div class="wish-name">أبو علي</div><div class="wish-msg">الله يبارك لكما ويبارك عليكما ويجمع بينكما في خير</div></div></div></div>
+    
+    
+  </div>
+
+  <script>
+(function(){
+  var form=document.getElementById('da3wa-rsvp-form');
+  var attendance='yes', companions=0;
+  var pills=document.querySelectorAll('#da3wa-att .pill');
+  pills.forEach(function(p){p.addEventListener('click',function(){attendance=p.dataset.v;pills.forEach(function(x){x.setAttribute('aria-pressed',x===p?'true':'false');});});});
+  var count=document.getElementById('da3wa-guests');
+  document.getElementById('da3wa-minus').addEventListener('click',function(){companions=Math.max(0,companions-1);count.textContent=companions;});
+  document.getElementById('da3wa-plus').addEventListener('click',function(){companions=Math.min(49,companions+1);count.textContent=companions;});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var config=window.__INVITE__.config;
+    var name=form.elements.guest_name.value.trim();
+    var message=form.elements.message.value.trim();
+    var attendanceLabel={yes:'نعم، سأحضر',no:'أعتذر عن الحضور',maybe:'ربما أحضر'}[attendance];
+    var details=['تأكيد حضور زفاف '+config.groom+' و'+config.bride,'الاسم: '+name,'الحضور: '+attendanceLabel,'عدد المرافقين: '+companions,'الرسالة: '+(message||'—')].join('
+');
+    var phone=(config.whatsappUrl||'https://wa.me/').replace(/\?.*$/,'');
+    window.open(phone+'?text='+encodeURIComponent(details),'_blank','noopener');
+    document.getElementById('da3wa-rsvp-card').innerHTML='<div class="ok"><div class="emoji">💌</div><h3>شكراً لتأكيدكم</h3><p class="sub">ستُرسل التفاصيل عبر واتساب لإتمام التأكيد</p><a class="send" style="display:inline-block;text-decoration:none" href="'+config.whatsappUrl+'" target="_blank" rel="noopener">فتح واتساب</a></div>';
+  });
+})();
+</script>
+</section>
+
+
+</main>
+
+  <script src="settings.js"></script>
+<script src="app.js" defer=""></script>
+<style>.da3wa-relline{text-align:center;margin:clamp(14px,4vw,26px) auto clamp(4px,1.6vw,10px);max-width:34ch}</style>
+
+
+<script>(function(){
+  var cfg=(window.__INVITE__&&window.__INVITE__.config)||{};
+  var occ=String(cfg.occasion||"");
+  if(occ==="birthday"||occ==="party"||occ==="newborn")return; /* مناسبات باسم واحد */
+  var BLANK=["","—","–","-","...","…"];
+  function val(v){var s=String(v==null?"":v).replace(/\s+/g," ").trim();return BLANK.indexOf(s)>=0?"":s}
+  var g=val(cfg.groom),b=val(cfg.bride),only=g||b;
+  if(g&&b)return; /* الاسمان مكتوبان — لا شيء نفعله */
+
+  var GROOM=["heroGroom","groomName","txtNameGroom","groomAr","groomEn"];
+  var BRIDE=["heroBride","brideName","txtNameBride","brideAr","brideEn"];
+  /* خانات الاسم القياسية التي يملؤها كل قالب من الإعدادات — بعض القوالب (aurum)
+     ترجع لاسمها الوهمي حين ينقص أحد الاسمين، فنعيد كتابة الاسم الباقي صراحةً.
+     خانات زنبق (Ar/En) خارج القائمة: القالب يملأ واحدة فقط حسب لغة الاسم */
+  var SOLE={groom:["heroGroom","groomName","txtNameGroom"],bride:["heroBride","brideName","txtNameBride"]};
+  var PAIR=["coverNames","preloaderNames","closingNames","thanksNames","txtFooterNames","gateNames","namesEl"];
+  var MONO=["coverMono","coverMonogram","sealMono"];
+  var SEP=".hero__amp,.couple__amp,.pair__amp,.names__amp,.names-amp,.honor__amp,.amp";
+  /* نصوص تأتي من حقول أخرى (عائلتا فلان…) — لا يلمسها الحارس */
+  var KEEP=[val(cfg.closingFamilies),val(cfg.groomParents),val(cfg.brideParents)];
+
+  function els(ids){var o=[],i,e;for(i=0;i<ids.length;i++){e=document.getElementById(ids[i]);if(e)o.push(e)}return o}
+  function hide(e){if(e&&e.style.display!=="none")e.style.display="none"}
+  function tidy(s){return s.replace(/^\s*(?:&|و|and)\s+/i,"").replace(/\s+(?:&|و|and)\s*$/i,"").replace(/\s+/g," ").trim()}
+
+  /* الفاصل يختفي مع الاسم الناقص — نبحث بأقرب حاوية تضمّه فقط كي لا نمسّ
+     فاصل فقرة الأهل بقوالب تستعمل الصنف نفسه للاثنين */
+  function hideSep(e){
+    for(var p=e.parentElement,lvl=0;p&&lvl<2;p=p.parentElement,lvl++){
+      var l=p.querySelectorAll(SEP);
+      if(l.length){for(var i=0;i<l.length;i++)hide(l[i]);return}
+    }
+  }
+
+  /* خانة الاسمين المدموجين: تبقى بالاسم الموجود وحده، وتختفي إن غاب الاسمان */
+  function fixPair(e,isMono){
+    var s=(e.textContent||"").replace(/\s+/g," ").trim();
+    if(!only){hide(e);return}
+    if(KEEP.indexOf(s)>=0)return;
+    var n=(!isMono&&s.indexOf(only)<0)?only:tidy(s);
+    if(!n){hide(e);return}
+    if(n!==s)e.textContent=n;
+  }
+
+  function run(){
+    var gs=els(GROOM),bs=els(BRIDE),all,i;
+    if(!g)for(i=0;i<gs.length;i++)hide(gs[i]);
+    if(!b)for(i=0;i<bs.length;i++)hide(bs[i]);
+    /* الاسم الباقي: يُكتب صراحةً كي لا يبقى اسم القالب الوهمي مكانه */
+    var sole=els(g?SOLE.groom:SOLE.bride);
+    for(i=0;i<sole.length;i++){
+      var s=(sole[i].textContent||"").replace(/\s+/g," ").trim();
+      if(only&&s!==only)sole[i].textContent=only;
+    }
+    all=gs.concat(bs);
+    for(i=0;i<all.length;i++)hideSep(all[i]);
+    var p=els(PAIR);for(i=0;i<p.length;i++)fixPair(p[i],false);
+    var m=els(MONO);for(i=0;i<m.length;i++)fixPair(m[i],true);
+    /* سكربت القالب يكتب عنوان الصفحة بصيغة "الاسم & الاسم" — نعيد عنوان الخادم */
+    var srv="دعوة زفاف محمد أديب طويل & رزان بطايحي";if(srv&&document.title!==srv)document.title=srv;
+  }
+
+  run();
+  document.addEventListener("DOMContentLoaded",run);
+  window.addEventListener("load",run);
+  var n=0,iv=setInterval(function(){run();if(++n>60)clearInterval(iv)},200);
+})();</script>
+
+
+<div id="da3wa-yt" style="position:fixed;left:-9999px;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none" aria-hidden="true"></div>
+<button id="da3wa-music" type="button" aria-label="الموسيقى" dir="rtl" style="position:fixed;inset-inline-start:16px;bottom:16px;z-index:60;width:50px;height:50px;border-radius:50%;border:none;cursor:pointer;background:rgba(255,255,255,.92);box-shadow:0 8px 22px rgba(0,0,0,.22);font-size:22px;display:grid;place-items:center;line-height:1">🎵</button>
+<script>(function(){
+  var btn=document.getElementById('da3wa-music'); if(!btn) return;
+  var player, ready=false, gestured=false, audible=false, primed=false, suspended=false, tries=0;
+  /* userPaused: الضيف أوقفها بزرّها — انظر شرح مسار الملف */
+  var userPaused=false;
+  var primeRequested=false, goRequested=false, seekBeforeLoud=false;
+  /* ⚠️ يُقرأ عند الاستعمال لا عند الإقلاع — انظر شرح المسار الآخر أعلاه */
+  function isManual(){ return window.__da3waMusicManualStart===true; }
+  function paint(){ btn.textContent = audible ? '🔊' : '🔇'; }
+  // يفكّ الكتم ويشغّل — يُستدعى ضمن لمسة المستخدم فيُحسب تفاعلاً مباشراً
+  function loud(){
+    if(!ready||suspended) return false;
+    try{
+      if(seekBeforeLoud){player.seekTo(0,true);seekBeforeLoud=false;}
+      else if(0>0&&player.getCurrentTime()>=0-1)player.seekTo(0,true);
+      player.unMute(); player.setVolume(70); player.playVideo();
+    }catch(e){ return false; }
+    var m=true; try{ m=player.isMuted(); }catch(e){}
+    if(!m){ audible=true; paint(); confirmAudible(); return true; }
+    return false;
+  }
+  /* ⚠️ بعد ٣٫٦ث كان يستسلم بصمت بلا طريق رجوع: القوالب اليدوية (باب الفرح)
+     تناديه بمؤقّت بعد الباب، وiOS يرفض بلا لمسة حيّة — فتموت الأغنية للأبد
+     لأن مستمع البدء التلقائي معطّل بالوضع اليدوي. الآن نسلّم الأمر للمسة القادمة. */
+  function pump(){ if(suspended||userPaused||audible||!gestured) return; if(loud()) return;
+    if(tries++<30) setTimeout(pump,120); else rearmOnGesture(); }
+  window.__da3waMusicPause=function(){ suspended=true; gestured=false; audible=false; primed=false; tries=0;
+    if(ready){ try{ player.mute(); player.pauseVideo(); }catch(e){} } paint(); };
+  /* ⚠️ التهيئة تكون بالكتم لا بمستوى صوت صفر: iOS يتجاهل setVolume تماماً
+     (مستوى الصوت بالآيفون بيد المستخدم لا بيد الجافاسكربت)، فتهيئة تفكّ الكتم
+     ثم تُنزل الصوت للصفر كانت تُسمع الأغنية بكامل الصوت من أول لمسة.
+     الكتم يمرّ على كل الأنظمة، والتشغيل ضمن اللمسة هو ما يشتري لنا الإذن. */
+  function primeSilently(){
+    if(!ready||suspended)return;
+    try{ player.mute(); player.seekTo(0,true); player.playVideo(); }catch(e){ return; }
+    primed=true;
+  }
+  /* ⚠️ فحص متأخّر: iOS يوقف الوسائط بعد فكّ كتم بلا لمسة، لكنه يوقفها **بعد**
+     لحظة — ففحص الـ300ms يرى «تعزف وغير مكتومة» ويرفع 🔊 بينما لا صوت أصلاً،
+     فتصير أول ضغطة من الضيف إيقافاً (يضطر يطفي ويشغّل). نعيد الفحص متأخراً
+     وإن كانت ماتت نُنزل الشارة ونسلّم الأمر للمسة القادمة. */
+  function confirmAudible(){
+    setTimeout(function(){
+      if(!audible||suspended) return;
+      var st=-1, m=true;
+      try{ st=player.getPlayerState(); m=player.isMuted(); }catch(e){}
+      if(st!==1 || m){ audible=false; primed=false; paint(); rearmOnGesture(); }
+    },1600);
+  }
+  /* شبكة أمان: إذا رفض المتصفح فكّ الكتم بلا لمسة جديدة، أول لمسة قادمة
+     أياً كانت تُشغّل الصوت — بدل أن ينتظر الضيف ويبحث عن زرّ الموسيقى */
+  var rearmed=false;
+  function rearmOnGesture(){
+    if(rearmed||audible||suspended) return; rearmed=true;
+    var h=function(){ document.removeEventListener('click',h); document.removeEventListener('touchstart',h);
+      /* نعيد الراية كي يُنصَب المستمع ثانيةً إن لم تنجح هذه المحاولة أيضاً */
+      rearmed=false; gestured=true; tries=0; pump(); };
+    document.addEventListener('click',h); document.addEventListener('touchstart',h,{passive:true});
+  }
+  /* تهيئة صامتة ضمن لمسة المستخدم (قوالب لها مقدمة بصوتها): التشغيل مكتوماً —
+     فيصبح فكّ الكتم لاحقاً (عند نهاية المقدمة) مسموحاً بلا لمسة جديدة */
+  window.__da3waMusicPrime=function(){ suspended=false; gestured=true; primeRequested=true; primeSilently(); };
+  /* تسليح صامت داخل لمسة الدقّة (باب الفرح يسلّم الأغنية بمؤقّت بعد صرير الباب):
+     فكّ كتم مشغّلٍ **متوقف لم يبدأ** ضمن اللمسة الحيّة ثم إعادة كتمه بعد لحظة.
+     WebKit يرفع قيد «الصوت يحتاج لمسة» عن عنصر الوسائط حين يتغيّر كتمه أثناء لمسة،
+     واللمسة تعبر إلى إطار يوتيوب عبر postMessage حتى ثانية — فيُقبل فكّ الكتم لاحقاً
+     بلا لمسة إن صمد القفل على العنصر نفسه. ⚠️ لا playVideo ولا seekTo هنا: أمر تشغيل
+     على لمسة حقيقية سرّب الأغنية مع الدقّات (#245)، وseekTo يبدأ فيديو لم يبدأ.
+     لا مستمعات ولا تغيير حالة — إن لم ينفع فالسلوك كما كان تماماً (أول لمسة تشغّلها). */
+  window.__da3waMusicArm=function(){
+    if(!isManual()||!ready||audible||primed||suspended||userPaused||goRequested) return;
+    var st=-1; try{ st=player.getPlayerState(); }catch(e){}
+    if(st===1||st===3) return;   /* يعزف أو يُحمّل ولو مكتوماً — فكّ كتمه يُسمع */
+    try{ player.unMute(); }catch(e){ return; }
+    setTimeout(function(){ if(!audible&&!goRequested){ try{ player.mute(); }catch(e){} } },250);
+  };
+  // أول لمسة (فتح الظرف) تُشغّل الصوت؛ نداء عام يستطيع القالب استدعاءه مباشرةً من زرّ الفتح — الأوثق على iOS
+  window.__da3waMusicGo=function(){ suspended=false; userPaused=false; gestured=true; goRequested=true; seekBeforeLoud=isManual();
+    if(primed && !audible){
+      /* الترجيع قبل فكّ الكتم: التهيئة تركت الأغنية متقدّمة بمقدار المقدمة،
+         ففكّ الكتم أولاً يسرّب لحظة من منتصفها قبل أن يقع الترجيع */
+      try{ player.seekTo(0,true); player.unMute(); player.setVolume(70); player.playVideo(); }catch(e){}
+      /* تحقّق فعلي بعد لحظة: إن لم يعزف فعلاً (iOS أوقفه أثناء المقدمة) نعود لمسار pump */
+      setTimeout(function(){
+        var st=-1, m=true;
+        try{ st=player.getPlayerState(); m=player.isMuted(); }catch(e){}
+        if(st===1 && !m){ audible=true; paint(); confirmAudible(); }
+        else { primed=false; pump(); rearmOnGesture(); }
+      },300);
+      return;
+    }
+    pump();
+    /* ⚠️ ونسلّح مستمع اللمس **فوراً** لا بعد أن تستنفد pump محاولاتها:
+       كانت ٣٫٦ ثانية تمرّ بلا مستمع، فلمسة الضيف الأولى بعد الباب — وهي
+       أكثر ما يقع، إذ يمرّر ليقرأ — تضيع سدىً، فيظنّ أن الأغنية تحتاج
+       ضغط زرّها. التسليح المبكر يجعل أوّل لمسة هي التي تُشغّلها. */
+    rearmOnGesture(); };
+  window.onYouTubeIframeAPIReady=function(){
+    player=new YT.Player('da3wa-yt',{videoId:window.__INVITE__.config.musicVideoId,
+      // يُجهَّز صامتاً؛ القالب يستطيع إبقاءه متوقفاً حتى تنتهي مقدمة الفيديو
+      playerVars:{autoplay:0,mute:1,controls:0,disablekb:1,fs:0,loop:1,playlist:window.__INVITE__.config.musicVideoId,playsinline:1,modestbranding:1,rel:0,start:0},
+      events:{onReady:function(){ ready=true; window.__da3waMusicReady=true;
+        try{ player.mute(); if(suspended||isManual())player.pauseVideo(); else player.playVideo(); }catch(e){}
+        if(isManual()){ if(primeRequested&&!goRequested)primeSilently(); if(goRequested){seekBeforeLoud=true;pump();} }
+        else if(!suspended)pump(); },
+        // بداية مخصّصة (musicStart): تُفرَض عند كل تشغيل — تغطي أول تشغيل وإعادة اللف من الصفر
+        onStateChange:function(e){
+          if(0>0 && e.data===1){ try{ if(player.getCurrentTime()<0-1) player.seekTo(0,true); }catch(err){} }
+          if(e.data===0){ audible=false;primed=false;paint(); }
+        }}});
+    /* لفّة المقطع: ببلوغ نهايته نرجع لبدايته والأغنية مستمرة. الفحص يجري ما دام
+       المشغّل يعزف — ولو مكتوماً — كي لا يهيم إلى ما بعد المقطع بصمت ثم يُفكّ
+       كتمه على مقطعٍ لا يريده الزبون (كصوت المغني). */
+    if(0>0){ setInterval(function(){
+      if(!ready)return;
+      var st=-1;try{st=player.getPlayerState();}catch(e){}
+      if(st!==1)return;
+      var now=0;try{now=player.getCurrentTime();}catch(e){}
+      if(now>=0-.12){try{player.seekTo(0,true);}catch(e){}}
+    },200); }
+  };
+  (function(){var s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s);})();
+  /* الفحص لحظة الإطلاق لا لحظة الربط — انظر الشرح بمسار الملف */
+  function autoGo(){ if(isManual()||userPaused) return; window.__da3waMusicGo(); }
+  document.addEventListener('click',autoGo); document.addEventListener('touchstart',autoGo,{passive:true});
+  /* نفس علاج مسار الملف: لمسة الزرّ لا تبلغ مستمعي المستند فلا يلغي الزرّ نفسه على الجوال */
+  btn.addEventListener('touchstart',function(e){ e.stopPropagation(); },{passive:true});
+  btn.addEventListener('click',function(e){ e.stopPropagation(); gestured=true;
+    if(audible){ userPaused=true; try{ player.pauseVideo(); }catch(e){} audible=false; paint(); }
+    else { userPaused=false; suspended=false;goRequested=true;seekBeforeLoud=false;pump(); }
+  });
+})();</script>
+
+<div id="wedding-order" dir="rtl"><a href="https://wa.me/+963992688759" target="_blank" rel="noopener">اطلبه عبر واتساب</a></div>
+</body></html>
